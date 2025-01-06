@@ -39,6 +39,8 @@ export async function modifyPdf(fieldsMap) {
 
   writePrice(fieldsMap, firstPage, customFont, fontSize, 367);
 
+  writeDateAndPlace(fieldsMap, firstPage, customFont, fontSize, 247);
+
   writeAnnexes(fieldsMap, firstPage, customFont, fontSize);
 
   // Serialize the PDFDocument to bytes (a Uint8Array)
@@ -48,12 +50,12 @@ export async function modifyPdf(fieldsMap) {
   download(pdfBytes, "contract-itl-054-2016.pdf", "application/pdf");
 }
 
-function writePrice(fields, firstPage, helveticaFont, fontSize, firstLineY) {
+function writePrice(fields, firstPage, font, fontSize, firstLineY) {
   firstPage.drawText(fields['price'], {
     x: 140,
     y: firstLineY,
     size: fontSize,
-    font: helveticaFont,
+    font: font,
   });
 
   
@@ -61,7 +63,23 @@ function writePrice(fields, firstPage, helveticaFont, fontSize, firstLineY) {
     x: 280,
     y: firstLineY,
     size: fontSize,
-    font: helveticaFont,
+    font: font,
+  });
+}
+
+function writeDateAndPlace(fields, page, font, fontSize, firstLineY) {
+  page.drawText(fields['dateOfSignature'], {
+    x: 200,
+    y: firstLineY,
+    size: fontSize,
+    font: font,
+  });
+
+  page.drawText(fields['placeOfSignature'], {
+    x: 320,
+    y: firstLineY,
+    size: fontSize,
+    font: font,
   });
 }
 
