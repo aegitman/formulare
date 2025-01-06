@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formular Completare PDF</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/pdf-lib@1.4.0"></script>
+    <script src="https://unpkg.com/downloadjs@1.4.7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@pdf-lib/fontkit/dist/fontkit.umd.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>CONTRACT DE ÎNSTRĂINARE - DOBÂNDIRE A UNUI MIJLOC DE TRANSPORT</h1>
+        <h5>Model oficial DGPCI: <a
+                href="https://dgpci.mai.gov.ro/assets/uploads/documente-formulare/1fd5d4e0-3649-11e8-bc84-659aee759273.pdf"
+                target="_blank">ITL-054-2016 <sup><i class="fa fa-external-link" aria-hidden="true"></i></sup></a></h3>
+            <p class="text-center text-muted">Introduceți datele vânzătorului și cumpărătorului pentru a genera
+                <u>gratuit</u>
+                documentul PDF.
+            </p>
+
+            
+            <h5>Persoana care înstrăinează:</h5>
+            <!-- Row 1 -->
+            <div class="row mb-3">
+                <div class="col-2">
+                    <label for="typeOfEntitySeller" class="form-label">Tip de persoană</label>
+                    <select class="form-select" id="typeOfEntitySeller" name="typeOfEntitySeller">
+                        <option value="PF">Fizică</option>
+                        <option value="PJ">Juridică</option>
+                    </select>
+                </div>
+                <div class="col-10">
+                    <label for="fullNameSeller" class="form-label">Nume complet</label>
+                    <input type="text" id="fullNameSeller" name="fullNameSeller" class="form-control"
+                        placeholder="Ex: Popescu Ion">
+                </div>
+            </div>
+            <!-- Row 2 -->
+            <div class="row mb-3" style="display: flex; align-items: end;">
+                <div class="col-md-2">
+                    <label for="countySeller" class="form-label">Județul</label>
+                    <input type="text" id="countySeller" name="countySeller" class="form-control"
+                        placeholder="Ex: Cluj">
+                </div>
+                <div class="col-md-2">
+                    <label for="postalCodeSeller" class="form-label">Cod poștal</label>
+                    <input type="text" id="postalCodeSeller" name="postalCodeSeller" class="form-control"
+                        placeholder="Ex: 400000">
+                </div>
+                <div class="col-md-4">
+                    <label for="citySeller" class="form-label">
+                        <label> <input type="radio" name="cityOrMunicipalitySeller" value="municipality" checked> Municipiul / </label>
+                        <label> <input type="radio" name="cityOrMunicipalitySeller" value="city"> Orașul / </label>
+                        <label> <input type="radio" name="cityOrMunicipalitySeller" value="comuna"> Comuna</label>
+                    </label>
+                    <input type="text" id="citySeller" name="citySeller" class="form-control"
+                        placeholder="Ex: Cluj-Napoca">
+                </div>
+                <div class="col-md-4">
+                    <label for="villageOrSectorSeller" class="form-label">
+                        <label> <input type="radio" name="villageOrSectorTypeSeller" value="village"> Satul / </label>
+                        <label><input type="radio" name="villageOrSectorTypeSeller" value="sector"> Sectorul </label>
+                    </label>
+                    <input type="text" id="villageOrSectorSeller" name="villageOrSectorSeller" class="form-control"
+                        placeholder="Ex: Sector 1">
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="row mb-3">
+
+                <div class="col-md-5">
+                    <label for="streetSeller" class="form-label">Strada</label>
+                    <input type="text" id="streetSeller" name="streetSeller" class="form-control"
+                        placeholder="Ex: Str. Principală">
+                </div>
+                <div class="col-md-2">
+                    <label for="streetNumberSeller" class="form-label">Nr.</label>
+                    <input type="text" id="streetNumberSeller" name="streetNumberSeller" class="form-control"
+                        placeholder="Ex: 10">
+                </div>
+                <div class="col-md-1">
+                    <label for="blockSeller" class="form-label">Bloc</label>
+                    <input type="text" id="blockSeller" name="blockSeller" class="form-control" placeholder="Ex: A3">
+                </div>
+                <div class="col-md-2">
+                    <label for="staircaseSeller" class="form-label">Scara</label>
+                    <input type="text" id="staircaseSeller" name="staircaseSeller" class="form-control"
+                        placeholder="Ex: 1">
+                </div>
+                <div class="col-md-1">
+                    <label for="floorSeller" class="form-label">Etaj</label>
+                    <input type="text" id="floorSeller" name="floorSeller" class="form-control" placeholder="Ex: 3">
+                </div>
+                <div class="col-md-1">
+                    <label for="apartmentSeller" class="form-label">Ap.</label>
+                    <input type="text" id="apartmentSeller" name="apartmentSeller" class="form-control"
+                        placeholder="Ex: 12">
+                </div>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <label for="idTypeSeller" class="form-label">Tip act</label>
+                    <select class="form-select" id="idTypeSeller" name="idTypeSeller">
+                        <option value="CI">C.I.</option>
+                        <option value="BI">B.I.</option>
+                        <option value="CIP">C.I.P.</option>
+                        <option value="Pasaport">Pașaport</option>
+                    </select>
+                </div>
+                <div class="col-md-1">
+                    <label for="idSeriesSeller" class="form-label">Seria</label>
+                    <input type="text" id="idSeriesSeller" name="idSeriesSeller" class="form-control"
+                        placeholder="Ex: AB">
+                </div>
+                <div class="col-md-1">
+                    <label for="idNumberSeller" class="form-label">Numărul</label>
+                    <input type="text" id="idNumberSeller" name="idNumberSeller" class="form-control"
+                        placeholder="Ex: 123456">
+                </div>
+                <div class="col-md-2">
+                    <label for="cnpSeller" class="form-label">
+                        <label><input type="radio" name="cnpOrCifSeller" value="cnp" checked> C.N.P. / </label>
+                        <label><input type="radio" name="cnpOrCifSeller" value="cif"> C.I.F. </label>
+                    </label>
+                    <input type="text" id="cnpSeller" name="cnpSeller" class="form-control"
+                        placeholder="Ex: 1234567890123">
+                </div>
+                <div class="col-md-2">
+                    <label for="phoneSeller" class="form-label">
+                        <label><input type="radio" name="phoneOrFaxSeller" value="phone" checked> Telefon / </label>
+                        <label> <input type="radio" name="phoneOrFaxSeller" value="fax"> Fax</label> </label>
+                    <input type="text" id="phoneSeller" name="phoneSeller" class="form-control"
+                        placeholder="Ex: 0740123456">
+                </div>
+                <div class="col-md-4">
+                    <label for="emailSeller" class="form-label">Email</label>
+                    <input type="email" id="emailSeller" name="emailSeller" class="form-control"
+                        placeholder="Ex: exemplu@email.com">
+                </div>
+            </div>
+
+             <!-- Row 6 -->
+            <div id="repSeller" style="display: none;">
+             <div class="row mb-3">
+                <div class="col-2">
+                    <label for="typeOfRepSeller" class="form-label">Tip reprezentant</label>
+                    <select class="form-select" id="typeOfRepSeller" name="typeOfRepSeller">
+                        <option value="M">Mandatar</option>
+                        <option value="RL">Reprezentant legal</option>
+                    </select>
+                </div>
+                <div class="col-10">
+                    <label for="fullNameRepSeller" class="form-label">Nume complet</label>
+                    <input type="text" id="fullNameRepSeller" name="fullNameRepSeller" class="form-control"
+                        placeholder="Ex: Popescu Ion">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <label for="idTypeRepSeller" class="form-label">Tip act</label>
+                    <select class="form-select" id="idTypeRepSeller" name="idTypeRepSeller">
+                        <option value="CI">C.I.</option>
+                        <option value="BI">B.I.</option>
+                        <option value="CIP">C.I.P.</option>
+                        <option value="Pasaport">Pașaport</option>
+                    </select>
+                </div>
+                <div class="col-md-1">
+                    <label for="idSeriesRepSeller" class="form-label">Seria</label>
+                    <input type="text" id="idSeriesRepSeller" name="idSeriesRepSeller" class="form-control"
+                        placeholder="Ex: AB">
+                </div>
+                <div class="col-md-3">
+                    <label for="idNumberRepSeller" class="form-label">Numărul</label>
+                    <input type="text" id="idNumberRepSeller" name="idNumberRepSeller" class="form-control"
+                        placeholder="Ex: 123456">
+                </div>
+                <div class="col-md-3">
+                    <label for="cnpRepSeller" class="form-label">
+                        <label><input type="radio" name="cnpOrCifîRepSeller" value="cnp" checked> C.N.P. / </label>
+                        <label><input type="radio" name="cnpOrCifîRepSeller" value="cif"> C.I.F. </label>
+                    </label>
+                    <input type="text" id="cnpRepSeller" name="cnpRepSeller" class="form-control"
+                        placeholder="Ex: 1234567890123">
+                </div>
+                <div class="col-md-2">
+                    <label for="phoneSeller" class="form-label">
+                        <label><input type="radio" name="phoneOrFaxRepSeller" value="phone" checked> Telefon / </label>
+                        <label> <input type="radio" name="phoneOrFaxRepSeller" value="fax"> Fax</label> </label>
+                    <input type="text" id="phoneSeller" name="phoneRepSeller" class="form-control"
+                        placeholder="Ex: 0740123456">
+                </div>
+                <div class="col-md-3">
+                    <label for="emailSeller" class="form-label">Email</label>
+                    <input type="email" id="emailSeller" name="emailRepSeller" class="form-control"
+                        placeholder="Ex: exemplu@email.com">
+                </div>
+            </div>
+        </div>
+
+            <hr />
+            <hr />
+            <h5>Persoana care dobândește:</h5>
+            <!-- Row 1 -->
+            <div class="row mb-3">
+                <div class="col-2">
+                    <label for="typeOfEntityBuyer" class="form-label">Tip de persoană</label>
+                    <select class="form-select" id="typeOfEntityBuyer" name="typeOfEntityBuyer">
+                        <option value="PF">Fizică</option>
+                        <option value="PJ">Juridică</option>
+                    </select>
+                </div>
+                <div class="col-10">
+                    <label for="fullNameBuyer" class="form-label">Nume complet</label>
+                    <input type="text" id="fullNameBuyer" name="fullNameBuyer" class="form-control"
+                        placeholder="Ex: Popescu Ion">
+                </div>
+            </div>
+            <!-- Row 2 -->
+            <div class="row mb-3" style="display: flex; align-items: end;">
+                <div class="col-md-2">
+                    <label for="countyBuyer" class="form-label">Județul</label>
+                    <input type="text" id="countyBuyer" name="countyBuyer" class="form-control" placeholder="Ex: Cluj">
+                </div>
+                <div class="col-md-2">
+                    <label for="postalCodeBuyer" class="form-label">Cod poștal</label>
+                    <input type="text" id="postalCodeBuyer" name="postalCodeBuyer" class="form-control"
+                        placeholder="Ex: 400000">
+                </div>
+                <div class="col-md-4">
+                    <label for="cityBuyer" class="form-label">
+                        <label> <input type="radio" name="cityOrMunicipalityBuyer" value="municipality" checked> Municipiul / </label>
+                        <label> <input type="radio" name="cityOrMunicipalityBuyer" value="city"> Orașul / </label>
+                        <label> <input type="radio" name="cityOrMunicipalityBuyer" value="comuna"> Comuna</label>
+                    </label>
+                    <input type="text" id="cityBuyer" name="cityBuyer" class="form-control"
+                        placeholder="Ex: Cluj-Napoca">
+                </div>
+                <div class="col-md-4">
+                    <label for="villageOrSectorBuyer" class="form-label">
+                        <label> <input type="radio" name="villageOrSectorTypeBuyer" value="village"> Satul / </label>
+                        <label><input type="radio" name="villageOrSectorTypeBuyer" value="sector"> Sectorul </label>
+                    </label>
+                    <input type="text" id="villageOrSectorBuyer" name="villageOrSectorBuyer" class="form-control"
+                        placeholder="Ex: Sector 1">
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="row mb-3">
+
+                <div class="col-md-5">
+                    <label for="streetBuyer" class="form-label">Strada</label>
+                    <input type="text" id="streetBuyer" name="streetBuyer" class="form-control"
+                        placeholder="Ex: Str. Principală">
+                </div>
+                <div class="col-md-2">
+                    <label for="streetNumberBuyer" class="form-label">Nr.</label>
+                    <input type="text" id="streetNumberBuyer" name="streetNumberBuyer" class="form-control"
+                        placeholder="Ex: 10">
+                </div>
+                <div class="col-md-1">
+                    <label for="blockBuyer" class="form-label">Bloc</label>
+                    <input type="text" id="blockBuyer" name="blockBuyer" class="form-control" placeholder="Ex: A3">
+                </div>
+                <div class="col-md-2">
+                    <label for="staircaseBuyer" class="form-label">Scara</label>
+                    <input type="text" id="staircaseBuyer" name="staircaseBuyer" class="form-control"
+                        placeholder="Ex: 1">
+                </div>
+                <div class="col-md-1">
+                    <label for="floorBuyer" class="form-label">Etaj</label>
+                    <input type="text" id="floorBuyer" name="floorBuyer" class="form-control" placeholder="Ex: 3">
+                </div>
+                <div class="col-md-1">
+                    <label for="apartmentBuyer" class="form-label">Ap.</label>
+                    <input type="text" id="apartmentBuyer" name="apartmentBuyer" class="form-control"
+                        placeholder="Ex: 12">
+                </div>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <label for="idTypeBuyer" class="form-label">Tip act</label>
+                    <select class="form-select" id="idTypeBuyer" name="idTypeBuyer">
+                        <option value="CI">C.I.</option>
+                        <option value="BI">B.I.</option>
+                        <option value="CIP">C.I.P.</option>
+                        <option value="Pasaport">Pașaport</option>
+                    </select>
+                </div>
+                <div class="col-md-1">
+                    <label for="idSeriesBuyer" class="form-label">Seria</label>
+                    <input type="text" id="idSeriesBuyer" name="idSeriesBuyer" class="form-control"
+                        placeholder="Ex: AB">
+                </div>
+                <div class="col-md-1">
+                    <label for="idNumberBuyer" class="form-label">Numărul</label>
+                    <input type="text" id="idNumberBuyer" name="idNumberBuyer" class="form-control"
+                        placeholder="Ex: 123456">
+                </div>
+                <div class="col-md-2">
+                    <label for="cnpBuyer" class="form-label">
+                        <label><input type="radio" name="cnpOrCifBuyer" value="cnp" checked> C.N.P. / </label>
+                        <label><input type="radio" name="cnpOrCifBuyer" value="cif"> C.I.F. </label>
+                    </label>
+                    <input type="text" id="cnpBuyer" name="cnpBuyer" class="form-control"
+                        placeholder="Ex: 1234567890123">
+                </div>
+                <div class="col-md-2">
+                    <label for="phoneBuyer" class="form-label">
+                        <label><input type="radio" name="phoneOrFaxBuyer" value="phone"> Telefon / </label>
+                        <label> <input type="radio" name="phoneOrFaxBuyer" value="fax"> Fax</label> </label>
+                    <input type="text" id="phoneBuyer" name="phoneBuyer" class="form-control"
+                        placeholder="Ex: 0740123456">
+                </div>
+                <div class="col-md-4">
+                    <label for="emailBuyer" class="form-label">Email</label>
+                    <input type="email" id="emailBuyer" name="emailBuyer" class="form-control"
+                        placeholder="Ex: exemplu@email.com">
+                </div>
+            </div>
+            <div id="repBuyer" style="display: none;">
+            <!-- Row 6 -->
+            <div class="row mb-3">
+                <div class="col-2">
+                    <label for="typeOfRepBuyer" class="form-label">Tip reprezentant</label>
+                    <select class="form-select" id="typeOfRepBuyer" name="typeOfRepBuyer">
+                        <option value="M">Mandatar</option>
+                        <option value="RL">Reprezentant legal</option>
+                    </select>
+                </div>
+                <div class="col-10">
+                    <label for="fullNameRepBuyer" class="form-label">Nume complet</label>
+                    <input type="text" id="fullNameRepBuyer" name="fullNameRepBuyer" class="form-control"
+                        placeholder="Ex: Popescu Ion">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <label for="idTypeRepBuyer" class="form-label">Tip act</label>
+                    <select class="form-select" id="idTypeRepBuyer" name="idTypeRepBuyer">
+                        <option value="CI">C.I.</option>
+                        <option value="BI">B.I.</option>
+                        <option value="CIP">C.I.P.</option>
+                        <option value="Pasaport">Pașaport</option>
+                    </select>
+                </div>
+                <div class="col-md-1">
+                    <label for="idSeriesRepBuyer" class="form-label">Seria</label>
+                    <input type="text" id="idSeriesRepBuyer" name="idSeriesRepBuyer" class="form-control"
+                        placeholder="Ex: AB">
+                </div>
+                <div class="col-md-2">
+                    <label for="idNumberRepBuyer" class="form-label">Numărul</label>
+                    <input type="text" id="idNumberRepBuyer" name="idNumberRepBuyer" class="form-control"
+                        placeholder="Ex: 123456">
+                </div>
+                <div class="col-md-2">
+                    <label for="cnpRepBuyer" class="form-label">
+                        <label><input type="radio" name="cnpOrCifîRepBuyer" value="cnp" checked> C.N.P. / </label>
+                        <label><input type="radio" name="cnpOrCifîRepbuyer" value="cif"> C.I.F. </label>
+                    </label>
+                    <input type="text" id="cnpRepBuyer" name="cnpRepBuyer" class="form-control"
+                        placeholder="Ex: 1234567890123">
+                </div>
+                <div class="col-md-2">
+                    <label for="phoneBuyer" class="form-label">
+                        <label><input type="radio" name="phoneOrFaxRepBuyer" value="phone" checked> Telefon / </label>
+                        <label> <input type="radio" name="phoneOrFaxRepBuyer" value="fax"> Fax</label> </label>
+                    <input type="text" id="phoneBuyer" name="phoneRepBuyer" class="form-control"
+                        placeholder="Ex: 0740123456">
+                </div>
+                <div class="col-md-3">
+                    <label for="emailBuyer" class="form-label">Email</label>
+                    <input type="email" id="emailBuyer" name="emailRepBuyer" class="form-control"
+                        placeholder="Ex: exemplu@email.com">
+                </div>
+            </div>
+        </div>
+
+            <hr />
+            <hr />
+            <h5>Obiectul contractului (mijlocul de transport):</h5>
+            <!-- Row 1 -->
+            <div class="row mb-3">
+                <div class="col-3">
+                    <label for="brand" class="form-label">Marca</label>
+                    <input type="text" id="brand" name="brand" class="form-control" placeholder="Ex: Volkswagen">
+                </div>
+                <div class="col-3">
+                    <label for="type" class="form-label">Tipul</label>
+                    <input type="text" id="type" name="type" class="form-control" placeholder="Ex: Passat">
+                </div>
+                <div class="col-2">
+                    <label for="vehicleIdNumber" class="form-label">Numărul de identificare</label>
+                    <input type="text" id="vehicleIdNumber" name="vehicleIdNumber" class="form-control"
+                        placeholder="Ex: 12345667">
+                </div>
+                <div class="col-2">
+                    <label for="engineIdNumber" class="form-label">Serie motor</label>
+                    <input type="text" id="engineIdNumber" name="engineIdNumber" class="form-control" placeholder="Ex: 123456778">
+                </div>
+                <div class="col-2">
+                    <label for="engineCapacity" class="form-label">Capacitate motor</label>
+                    <input type="text" id="engineCapacity" name="engineCapacity" class="form-control" placeholder="Ex: 2500">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-2">
+                    <label for="maxWeight" class="form-label">Greutate maximă admisă</label>
+                    <input type="text" id="maxWeight" name="maxWeight" class="form-control" placeholder="Ex: 2.8">
+                </div>
+                <div class="col-2">
+                    <label for="matNr" class="form-label">Număr de înmatriculare</label>
+                    <input type="text" id="matNr" name="matNr" class="form-control" placeholder="Ex: B-000-AAA">
+                </div>
+                <div class="col-2">
+                    <label for="expITP" class="form-label">Exipirare I.T.P.</label>
+                    <input type="date" id="expITP" name="expITP" class="form-control" placeholder="Ex: 01/01/2027">
+                </div>
+                <div class="col-2">
+                    <label for="nrBookId" class="form-label">Nr. carte identitate</label>
+                    <input type="text" id="nrBookId" name="nrBookId" class="form-control" placeholder="Ex: B000000">
+                </div>
+                <div class="col-2">
+                    <label for="an" class="form-label">An fab.</label>
+                    <input type="text" id="year" name="year" class="form-control" placeholder="Ex: 2020">
+                </div>
+                <div class="col-2">
+                    <label for="euro" class="form-label">Norma Euro</label>
+                    <input type="text" id="euro" name="euro" class="form-control" placeholder="Ex: 5">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-3">
+                    <label for="prevBuyDate" class="form-label">Dobândit la data</label>
+                    <input type="date" id="prevBuyDate" name="prevBuyDate" class="form-control" placeholder="Ex: 01/01/2023">
+                </div>
+                <div class="col-9">
+                    <label for="buyDocument" class="form-label">Conform act</label>
+                    <input type="text" id="buyDoc" name="buyDocument" class="form-control"
+                        placeholder="Ex: Contract vânzare cumpărare ...">
+                </div>
+            </div>
+
+            <hr />
+            <hr />
+            <h5>Prețul:</h5>
+            <div class="row mb-3">
+                <div class="col-3">
+                    <label for="price" class="form-label">Cifre</label>
+                    <input type="text" id="price" name="price" class="form-control" placeholder="Ex: 1000">
+                </div>
+                <div class="col-6">
+                    <label for="priceWritten" class="form-label">Litere</label>
+                    <input type="text" id="priceWritten" name="priceWritten" class="form-control"
+                        placeholder="Ex: zece mii ">
+                </div>
+                <div class="col-3" style="display: flex; align-items: end;">
+                    <b style="padding-bottom: 7px;">RON</b>
+                </div>
+            </div>
+
+            <hr />
+            <hr />
+            <h5>Data și locul semnării:</h5>
+            <div class="row mb-3">
+                <div class="col-3">
+                    <label for="dateOfSignature" class="form-label">Data</label>
+                    <input type="text" id="dateOfSignature" name="dateOfSignature" class="form-control"
+                        placeholder="Ex: 01/01/2023">
+                </div>
+                <div class="col-6">
+                    <label for="placeOfSignature" class="form-label">Locul</label>
+                    <input type="text" id="placeOfSignature" name="placeOfSignature" class="form-control"
+                        placeholder="Ex: București">
+                </div>
+                <div class="col-3" style="display: flex; flex-direction: column;">
+                    <label class="form-check-label" for="withAnexe">
+                      Cu Anexă
+                    </label>
+                    <input class="form-check-input" type="checkbox" value="" id="withAnexe" name="withAnexe" style="margin-top: 8px;">
+                </div>
+                
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-6">
+                    <!-- onclick="module.itl56()"  -->
+
+                    <button type="button" onclick="listFields()" class="btn btn-primary btn-download">Descarcă
+                        PDF</button>
+                    <p class="small">(Browserul dumneavoastră va descărca PDF-ul)</p>
+                </div>
+                <div class="col-6">
+                    <button type="button" class="btn btn-secondary btn-download">Partajează</button>
+                </div>
+            </div>
+    </div>
+
+
+    <script type="text/javascript">
+        const module = {};
+        function listFields() {
+            var inputs = $('.container').find('input[name], select'); //all inputs with a name in the form
+
+            var names = $.map(inputs, function (el) { return el.name });
+
+            // Create the map
+            const fieldValuesMap = {};
+
+            // Iterate through the field names
+            names.forEach((fieldName) => {
+                // Find the input fields by name
+                const inputs = $(`input[name="${fieldName}"]`);
+
+                // Check the type of the input
+                if (inputs.length) {
+                    const inputType = inputs.first().attr("type");
+
+                    switch (inputType) {
+                        case "text":
+                        case "email":
+                        case "date":
+                            // Single value for text or date inputs
+                            fieldValuesMap[fieldName] = inputs.val();
+                            break;
+                        case "radio":
+                            // Get the checked radio button value
+                            fieldValuesMap[fieldName] = inputs.filter(":checked").val() || null;
+                            break;
+                        case "checkbox":
+                            // Get all checked checkbox values as an array
+                            fieldValuesMap[fieldName] = inputs.filter(":checked").map(function () {
+                                return $(this).val();
+                            }).get();
+                            break;
+                        default:
+                            fieldValuesMap[fieldName] = null; // Handle unexpected types
+                    }
+                } else {
+                    fieldValuesMap[fieldName] = null; // Field not found
+                }
+            });
+
+            // Iterate over all select fields
+            $('.container').find('select').each(function () {
+                  const name = $(this).attr('name');
+                  if (!name) return; // Skip fields without a name attribute
+
+                 const value = $(this).val(); // Get the selected option's value
+                 if (value !== undefined) {
+                     fieldValuesMap[name] = value;
+                }
+            });
+
+            module.itl56(fieldValuesMap);
+        }
+
+
+        $('#typeOfEntitySeller').on('change', function () {
+            if($('#typeOfEntitySeller').val() == 'PF') {
+                $('#repSeller').hide();
+            } else {
+                $('#repSeller').show();
+            }
+        }); 
+
+        $('#typeOfEntityBuyer').on('change', function () {
+            if($('#typeOfEntityBuyer').val() == 'PF') {
+                $('#repBuyer').hide();
+            } else {
+                $('#repBuyer').show();
+            }
+        }); 
+
+        $('#price').on('change', function () {
+            let letters = module.inLetters(Number($('#price').val()));
+            $('#priceWritten').val(letters);
+        });
+    </script>
+    <script type="module">
+        import { modifyPdf } from "./itl-054-2016-objs.js";
+        import { numarInLitere } from "./utile.js";
+
+        module.itl56 = modifyPdf;
+        module.inLetters = numarInLitere;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
