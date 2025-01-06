@@ -442,12 +442,14 @@ function writePerson(fields, person, page, font, fontSize, firstLineY) {
   // calitatea reprezentantului legal
   let repType = fields['typeOfRep' + person];
   let repTypeStr = repType == 'M' ? 'Mandatar' : 'Reprezentant legal';
-  page.drawText(repTypeStr, {
-    x: 260,
-    y: firstLineY - 103,
-    size: fontSize,
-    font: font,
-  });
+  if(fields['typeOfEntity' + person] == 'PJ') {
+    page.drawText(repTypeStr, {
+      x: 260,
+      y: firstLineY - 103,
+      size: fontSize,
+      font: font,
+    });
+  }  
 }
 
 function writeAnnexes(fields, page, helveticaFont, fontSize) {
