@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formular Completare PDF</title>
+    <title>CONTRACT DE ÎNSTRĂINARE - DOBÂNDIRE A UNUI MIJLOC DE TRANSPORT</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -35,14 +35,14 @@
             <h5>Persoana care înstrăinează:</h5>
             <!-- Row 1 -->
             <div class="row mb-3">
-                <div class="col-2">
+                <div class="col-12 col-lg-2">
                     <label for="typeOfEntitySeller" class="form-label">Tip de persoană</label>
                     <select class="form-select" id="typeOfEntitySeller" name="typeOfEntitySeller">
                         <option value="PF">Fizică</option>
                         <option value="PJ">Juridică</option>
                     </select>
                 </div>
-                <div class="col-10">
+                <div class="col-12 col-lg-10">
                     <label for="fullNameSeller" class="form-label">Nume complet</label>
                     <input type="text" id="fullNameSeller" name="fullNameSeller" class="form-control"
                         placeholder="Ex: Popescu Ion">
@@ -395,62 +395,62 @@
             <h5>Obiectul contractului (mijlocul de transport):</h5>
             <!-- Row 1 -->
             <div class="row mb-3" style="display: flex;align-items: flex-end;">
-                <div class="col-3">
+                <div class="col-lg-3">
                     <label for="brand" class="form-label">Marca</label>
                     <input type="text" id="brand" name="brand" class="form-control" placeholder="Ex: Volkswagen">
                 </div>
-                <div class="col-3">
+                <div class="col-lg-3">
                     <label for="type" class="form-label">Tipul</label>
                     <input type="text" id="type" name="type" class="form-control" placeholder="Ex: Passat">
                 </div>
-                <div class="col-2">
+                <div class="col-lg-2">
                     <label for="vehicleIdNumber" class="form-label">Numărul de identificare</label>
                     <input type="text" id="vehicleIdNumber" name="vehicleIdNumber" class="form-control"
                         placeholder="Ex: 12345667">
                 </div>
-                <div class="col-2">
+                <div class="col-lg-2">
                     <label for="engineIdNumber" class="form-label">Serie motor</label>
                     <input type="text" id="engineIdNumber" name="engineIdNumber" class="form-control" placeholder="Ex: 123456778">
                 </div>
-                <div class="col-2">
+                <div class="col-lg-2">
                     <label for="engineCapacity" class="form-label">Capacitate motor</label>
                     <input type="text" id="engineCapacity" name="engineCapacity" class="form-control" placeholder="Ex: 2500">
                 </div>
             </div>
 
             <div class="row mb-3" style="display: flex;align-items: flex-end;">
-                <div class="col-2">
+                <div class="col-lg-2">
                     <label for="maxWeight" class="form-label">Greutate maximă admisă</label>
                     <input type="text" id="maxWeight" name="maxWeight" class="form-control" placeholder="Ex: 2.8">
                 </div>
-                <div class="col-2">
+                <div class="col-lg-2">
                     <label for="matNr" class="form-label">Număr de înmatriculare</label>
                     <input type="text" id="matNr" name="matNr" class="form-control" placeholder="Ex: B-000-AAA">
                 </div>
-                <div class="col-2">
+                <div class="col-lg-2">
                     <label for="expITP" class="form-label">Exipirare I.T.P.</label>
                     <input type="date" id="expITP" name="expITP" class="form-control" placeholder="Ex: 01/01/2027">
                 </div>
-                <div class="col-2">
+                <div class="col-lg-2">
                     <label for="nrBookId" class="form-label">Nr. carte identitate</label>
                     <input type="text" id="nrBookId" name="nrBookId" class="form-control" placeholder="Ex: B000000">
                 </div>
-                <div class="col-2">
+                <div class="col-lg-2">
                     <label for="an" class="form-label">An fab.</label>
                     <input type="text" id="year" name="year" class="form-control" placeholder="Ex: 2020">
                 </div>
-                <div class="col-2">
+                <div class="col-lg-2">
                     <label for="euro" class="form-label">Norma Euro</label>
                     <input type="text" id="euro" name="euro" class="form-control" placeholder="Ex: 5">
                 </div>
             </div>
 
             <div class="row mb-3">
-                <div class="col-3">
+                <div class="col-lg-3">
                     <label for="prevBuyDate" class="form-label">Dobândit la data</label>
                     <input type="date" id="prevBuyDate" name="prevBuyDate" class="form-control" placeholder="Ex: 01/01/2023">
                 </div>
-                <div class="col-9">
+                <div class="col-lg-9">
                     <label for="buyDocument" class="form-label">Conform act</label>
                     <input type="text" id="buyDoc" name="buyDocument" class="form-control"
                         placeholder="Ex: Contract vânzare cumpărare ...">
@@ -461,16 +461,16 @@
             <hr />
             <h5>Prețul:</h5>
             <div class="row mb-3">
-                <div class="col-3">
+                <div class="col-lg-3">
                     <label for="price" class="form-label">Cifre</label>
                     <input type="text" id="price" name="price" class="form-control" placeholder="Ex: 1000">
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6 col-9">
                     <label for="priceWritten" class="form-label">Litere</label>
                     <input type="text" id="priceWritten" name="priceWritten" class="form-control"
                         placeholder="Ex: zece mii ">
                 </div>
-                <div class="col-3" style="display: flex; align-items: end;">
+                <div class="col-lg-3 col-3" style="display: flex; align-items: end;">
                     <b style="padding-bottom: 7px;">RON</b>
                 </div>
             </div>
@@ -479,12 +479,12 @@
             <hr />
             <h5>Data și locul semnării:</h5>
             <div class="row mb-3">
-                <div class="col-3">
+                <div class="col-lg-3">
                     <label for="dateOfSignature" class="form-label">Data</label>
                     <input type="date" id="dateOfSignature" name="dateOfSignature" class="form-control"
                         placeholder="Ex: 01/01/2023">
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6">
                     <label for="placeOfSignature" class="form-label">Locul</label>
                     <input type="text" id="placeOfSignature" name="placeOfSignature" class="form-control"
                         placeholder="Ex: București">
@@ -507,7 +507,7 @@
                     <p class="small">(Browserul dumneavoastră va descărca PDF-ul)</p>
                 </div>
                 <div class="col-6">
-                    <button type="button" class="btn btn-secondary btn-download">Partajează</button>
+                    <!-- <button type="button" class="btn btn-secondary btn-download">Partajează</button> -->
                 </div>
             </div>
     </div>

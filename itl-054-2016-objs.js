@@ -68,7 +68,7 @@ function writePrice(fields, firstPage, font, fontSize, firstLineY) {
 }
 
 function writeDateAndPlace(fields, page, font, fontSize, firstLineY) {
-  page.drawText(fields['dateOfSignature'], {
+  page.drawText(convertDateToRomanianFormat(fields['dateOfSignature']), {
     x: 200,
     y: firstLineY,
     size: fontSize,
@@ -133,7 +133,7 @@ function writeVehicle(fields, page, helveticaFont, fontSize, firstLineY) {
     font: helveticaFont,
   });
 
-  page.drawText(fields['expITP'], { // expITP
+  page.drawText(convertDateToRomanianFormat(fields['expITP']), { // expITP
     x: 480,
     y: firstLineY - 23,
     size: fontSize,
@@ -161,7 +161,7 @@ function writeVehicle(fields, page, helveticaFont, fontSize, firstLineY) {
     font: helveticaFont,
   });
 
-  page.drawText(fields['prevBuyDate'], { // prevBuyDate
+  page.drawText(convertDateToRomanianFormat(fields['prevBuyDate']), { // prevBuyDate
     x: 50,
     y: firstLineY - 45,
     size: fontSize,
@@ -631,4 +631,31 @@ function drawIdType(idType, page, x, y) {
             thickness: 2
           });
     }
+}
+
+function convertDateToRomanianFormat(dateString) {
+  // Define luni în limba română
+  const luniInRomana = [
+    "Ianuarie",
+    "Februarie",
+    "Martie",
+    "Aprilie",
+    "Mai",
+    "Iunie",
+    "Iulie",
+    "August",
+    "Septembrie",
+    "Octombrie",
+    "Noiembrie",
+    "Decembrie"
+  ];
+
+  // Descompunem șirul de intrare
+  const [year, month, day] = dateString.split("-");
+
+  // Obținem numele lunii în română (index-ul lunii începe de la 0)
+  const monthName = luniInRomana[parseInt(month, 10) - 1];
+
+  // Returnăm șirul în formatul dorit
+  return `${day} ${monthName} ${year}`;
 }
