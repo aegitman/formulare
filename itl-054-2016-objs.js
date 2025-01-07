@@ -180,7 +180,7 @@ function writePerson(fields, person, page, font, fontSize, firstLineY) {
 
   // first line
   page.drawText(fields['fullName' + person], {
-    x: 340,
+    x: person == 'Seller' ? 343 : 330,
     y: firstLineY,
     size: fontSize,
     font: font,
@@ -228,7 +228,7 @@ function writePerson(fields, person, page, font, fontSize, firstLineY) {
   });
 
   page.drawText(fields['streetNumber' + person], { // streetNumber 
-    x: 550,
+    x: 554,
     y: firstLineY - 22,
     size: fontSize,
     font: font,
@@ -237,47 +237,47 @@ function writePerson(fields, person, page, font, fontSize, firstLineY) {
   // fourth line
   // block
   page.drawText(fields['block' + person], { // block 
-    x: 60,
-    y: firstLineY - 33,
+    x: 66,
+    y: firstLineY - 34,
     size: fontSize,
     font: font,
   });
   // scara
   page.drawText(fields['staircase' + person], { // staircase 
     x: 120,
-    y: firstLineY - 33,
+    y: firstLineY - 34,
     size: fontSize,
     font: font,
   });
   // etaj
   page.drawText(fields['floor' + person], { // floor 
     x: 170,
-    y: firstLineY - 33,
+    y: firstLineY - 34,
     size: fontSize,
     font: font,
   });
   // apartament
   page.drawText(fields['apartment' + person], { // apartment 
-    x: 220,
-    y: firstLineY - 33,
+    x: 223,
+    y: firstLineY - 34,
     size: fontSize,
     font: font,
   });
 
   // idType
-  drawIdType(fields['idType' + person], page, 335, firstLineY - 34, fontSize, font);
+  drawIdType(fields['idType' + person], page, 335, firstLineY - 33, fontSize, font);
 
   // id seria
   page.drawText(fields['idSeries' + person], { // idSeries
     x: 480,
-    y: firstLineY - 33,
+    y: firstLineY - 34,
     size: fontSize,
     font: font,
   });
   // id numarul
   page.drawText(fields['idNumber' + person], { // idNumber
     x: 535,
-    y: firstLineY - 33,
+    y: firstLineY - 34,
     size: fontSize,
     font: font,
   });
@@ -517,7 +517,7 @@ function drawPhoneOrFax(phoneOrFax, page, x, y) {
 
 
 function drawCnpOrCif(cnpOrCif, page, x, y) {
-    if(cnpOrCif == "cnp") {
+    if(cnpOrCif == "cif") {
         page.drawLine({
             start: { x: x,      y: y },
             end:   { x: x + 30, y: y },
@@ -525,7 +525,7 @@ function drawCnpOrCif(cnpOrCif, page, x, y) {
           });
     }
 
-    if(cnpOrCif == "cif") {
+    if(cnpOrCif == "cnp") {
         page.drawLine({
             start: { x: x + 30, y: y },
             end:   { x: x + 55, y: y },
@@ -567,7 +567,7 @@ function drawCityOrMunicipality(cityOrMunicipality, page, x, y) {
     if(cityOrMunicipality == "city") {
         page.drawLine({
             start: { x: x,      y: y },
-            end:   { x: x + 47, y: y },
+            end:   { x: x + 45, y: y },
             thickness: 2
           });
           page.drawLine({
@@ -632,6 +632,9 @@ function drawIdType(idType, page, x, y) {
 }
 
 function convertDateToRomanianFormat(dateString) {
+  if(dateString == undefined || dateString == null) {
+    return '';
+  }
   // Define luni în limba română
   const luniInRomana = [
     "Ianuarie",
