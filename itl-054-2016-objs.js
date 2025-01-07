@@ -1,5 +1,3 @@
-import { numarInLitere } from "./utile.js";
-
 const {PDFDocument, rgb, StandardFonts } = PDFLib;
 
 export async function modifyPdf(fieldsMap) {
@@ -16,7 +14,7 @@ export async function modifyPdf(fieldsMap) {
   pdfDoc.registerFontkit(fontkit);
 
   // Încarcă fontul extern
-  const fontBytes = await fetch('bitter/Bitter-Regular.otf').then(res => res.arrayBuffer());
+  const fontBytes = await fetch('fonts/Roboto-Regular.ttf').then(res => res.arrayBuffer());
   
   // Înregistrează fontul
   const customFont = await pdfDoc.embedFont(fontBytes);
@@ -47,7 +45,7 @@ export async function modifyPdf(fieldsMap) {
   const pdfBytes = await pdfDoc.save();
 
   // Trigger the browser to download the PDF document
-  download(pdfBytes, "contract-itl-054-2016.pdf", "application/pdf");
+  download(pdfBytes, "contract-vanzare-cumparare-mijloc-de-transport.pdf", "application/pdf");
 }
 
 function writePrice(fields, firstPage, font, fontSize, firstLineY) {
