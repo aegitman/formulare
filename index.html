@@ -52,8 +52,8 @@
             <div class="row mb-3" style="display: flex; align-items: end;">
                 <div class="col-md-2">
                     <label for="countySeller" class="form-label">Județul</label>
-                    <input type="text" id="countySeller" name="countySeller" class="form-control"
-                        placeholder="Ex: Cluj">
+                    <select id="judet" name="countySeller" class="form-control select-counties" title="Selectează un județ">                       
+                    </select>
                 </div>
                 <div class="col-md-2">
                     <label for="postalCodeSeller" class="form-label">Cod poștal</label>
@@ -201,7 +201,7 @@
                         <label><input type="radio" name="phoneOrFaxRepSeller" value="phone" checked> Telefon / </label>
                         <label> <input type="radio" name="phoneOrFaxRepSeller" value="fax"> Fax</label> </label>
                     <input type="text" id="phoneSeller" name="phoneRepSeller" class="form-control"
-                        placeholder="Ex: 0740123456">
+                        placeholder="Ex: 0740123456" oninput="validatePhone(this)">
                 </div>
                 <div class="col-md-3">
                     <label for="emailSeller" class="form-label">Email</label>
@@ -216,7 +216,7 @@
             <h5>Persoana care dobândește:</h5>
             <!-- Row 1 -->
             <div class="row mb-3">
-                <div class="col-2">
+                <div class="col-lg-2">
                     <label for="typeOfEntityBuyer" class="form-label">Tip de persoană</label>
                     <select class="form-select" id="typeOfEntityBuyer" name="typeOfEntityBuyer">
                         <option value="PF">Fizică</option>
@@ -233,7 +233,8 @@
             <div class="row mb-3" style="display: flex; align-items: end;">
                 <div class="col-md-2">
                     <label for="countyBuyer" class="form-label">Județul</label>
-                    <input type="text" id="countyBuyer" name="countyBuyer" class="form-control" placeholder="Ex: Cluj">
+                    <select id="judet" id="countyBuyer" name="countyBuyer" class="form-control select-counties" title="Selectează un județ">                       
+                    </select>
                 </div>
                 <div class="col-md-2">
                     <label for="postalCodeBuyer" class="form-label">Cod poștal</label>
@@ -601,6 +602,9 @@
         module.inLetters = numarInLitere;
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="utils-counties.js">
+    
+    </script>
 </body>
 
 </html>
