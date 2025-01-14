@@ -26,3 +26,9 @@ body {
   label {
     font-weight: bold;
   }
+
+  .error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
