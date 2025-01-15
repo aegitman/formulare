@@ -21,7 +21,40 @@
 </head>
 
 <body>
-    <div class="container">
+
+
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+          <a class="navbar-brand" href="#" style="margin-left: 5%;">Formulare D.G.P.C.I.</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" 
+                data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item ">
+                <a class="nav-link active" href="#">Contract de înstrăinare</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Cerere</a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link" href="#">Declarație pierdere</a>
+              </li>              
+
+              <li class="nav-item">
+                <a class="nav-link" href="https://dgpci.mai.gov.ro/documents-and-forms/inmatriculari" 
+                target="_blank">Pagina DGPCI <sup><i class="fa fa-external-link" aria-hidden="true"></i></sup></a>
+              </li>              
+            </ul>            
+          </div>
+        </nav>
+      </header>
+
+
+
+    <main role="main" class="container">
         <h1>CONTRACT DE ÎNSTRĂINARE - DOBÂNDIRE A UNUI MIJLOC DE TRANSPORT</h1>
         <h5>Model oficial DGPCI: <a
                 href="https://dgpci.mai.gov.ro/assets/uploads/documente-formulare/1fd5d4e0-3649-11e8-bc84-659aee759273.pdf"
@@ -31,7 +64,7 @@
                 documentul PDF.
             </p>
 
-            
+
             <h5>Persoana care înstrăinează:</h5>
             <!-- Row 1 -->
             <div class="row mb-3">
@@ -501,18 +534,31 @@
             </div>
 
             <div class="row mb-3">
-                <div class="col-6">
-                    <button type="button" onclick="listFields()" class="btn btn-primary btn-download">Descarcă
-                        PDF</button>
+                <div class="col-4">
+                    <button type="button" onclick="listFields()" class="btn btn-primary btn-download">
+                        Descarcă Contractul
+                    </button>
                     <p class="small">(Browserul dumneavoastră va descărca PDF-ul)</p>
                 </div>
-                <div class="col-6">
-                    <button type="button" onclick="radiere()" class="btn btn-primary btn-download">Descarcă
-                        Radiere PDF</button>
+                <div class="col-4">
+                    <button type="button" onclick="radiere()" class="btn btn-primary btn-download">
+                        Descarcă Radiere </button>
+                    <p class="small">(Browserul dumneavoastră va descărca PDF-ul)</p>
+                </div>
+                <div class="col-4">
+                    <button type="button" onclick="inmatriculare()" class="btn btn-primary btn-download">
+                        Descarcă cerere înmatriculare </button>
                     <p class="small">(Browserul dumneavoastră va descărca PDF-ul)</p>
                 </div>
             </div>
-    </div>
+        </main>
+
+
+        <footer class="footer">
+            <div class="container">
+              <span class="text-muted">Place sticky footer content here.</span>
+            </div>
+        </footer>
 
 
     <script type="text/javascript">
