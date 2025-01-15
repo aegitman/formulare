@@ -502,14 +502,14 @@
 
             <div class="row mb-3">
                 <div class="col-6">
-                    <!-- onclick="module.itl56()"  -->
-
                     <button type="button" onclick="listFields()" class="btn btn-primary btn-download">Descarcă
                         PDF</button>
                     <p class="small">(Browserul dumneavoastră va descărca PDF-ul)</p>
                 </div>
                 <div class="col-6">
-                    <!-- <button type="button" class="btn btn-secondary btn-download">Partajează</button> -->
+                    <button type="button" onclick="radiere()" class="btn btn-primary btn-download">Descarcă
+                        Radiere PDF</button>
+                    <p class="small">(Browserul dumneavoastră va descărca PDF-ul)</p>
                 </div>
             </div>
     </div>
@@ -517,7 +517,16 @@
 
     <script type="text/javascript">
         const module = {};
+
+        function radiere() {
+            module.itl16(collectFields());
+        }
+
         function listFields() {
+            module.itl56(collectFields());
+        }
+
+        function collectFields() {
             var inputs = $('.container').find('input[name], select'); //all inputs with a name in the form
 
             var names = $.map(inputs, function (el) { return el.name });
@@ -570,7 +579,7 @@
                 }
             });
 
-            module.itl56(fieldValuesMap);
+            return fieldValuesMap;
         }
 
 
@@ -597,9 +606,11 @@
     </script>
     <script type="module">
         import { modifyPdf } from "./itl-054-2016-objs.js";
+        import { radiere } from './itl-016-2016.js';
         import { numarInLitere } from "./utile.js";
 
         module.itl56 = modifyPdf;
+        module.itl16 = radiere;
         module.inLetters = numarInLitere;
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
