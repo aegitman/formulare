@@ -313,7 +313,7 @@ function writePerson(fields, person, page, font, fontSize, firstLineY) {
 
   // sixth line
   // domiciliul fiscal
-  page.drawText("", {
+  page.drawText(fields['fisCounty' + person], {
     x: 310,
     y: firstLineY - 56,
     size: fontSize,
@@ -321,7 +321,7 @@ function writePerson(fields, person, page, font, fontSize, firstLineY) {
   });
 
   // codul postal
-  page.drawText("", {
+  page.drawText(fields['fisPostalCode' + person], {
     x: 530,
     y: firstLineY - 56,
     size: fontSize,
@@ -330,7 +330,7 @@ function writePerson(fields, person, page, font, fontSize, firstLineY) {
 
   // seventh line
   // Municipiul
-  page.drawText("", {
+  page.drawText(fields['fisCity' + person], {
     x: 150,
     y: firstLineY - 67,
     size: fontSize,
@@ -338,7 +338,7 @@ function writePerson(fields, person, page, font, fontSize, firstLineY) {
   });
 
   // Sectorul
-  page.drawText("", {
+  page.drawText(fields['fisVillageOrSector' + person], {
     x: 350,
     y: firstLineY - 67,
     size: fontSize,
@@ -346,7 +346,7 @@ function writePerson(fields, person, page, font, fontSize, firstLineY) {
   });
 
   // adresa
-  page.drawText("", {
+  page.drawText('', {
     x: 480,
     y: firstLineY - 67,
     size: fontSize,
@@ -355,7 +355,7 @@ function writePerson(fields, person, page, font, fontSize, firstLineY) {
 
   // eighth line
   // adresa continuare
-  page.drawText("", {
+  page.drawText(fields['fisStreet' + person], {
     x: 40,
     y: firstLineY - 79,
     size: fontSize,
@@ -363,7 +363,7 @@ function writePerson(fields, person, page, font, fontSize, firstLineY) {
   });
 
   // numar
-  page.drawText("", {
+  page.drawText(fields['fisStreetNumber' + person], {
     x: 140,
     y: firstLineY - 79,
     size: fontSize,
@@ -371,7 +371,7 @@ function writePerson(fields, person, page, font, fontSize, firstLineY) {
   });
 
   // bloc
-  page.drawText("", {
+  page.drawText(fields['fisBlock' + person], {
     x: 178,
     y: firstLineY - 79,
     size: fontSize,
@@ -379,7 +379,7 @@ function writePerson(fields, person, page, font, fontSize, firstLineY) {
   });
 
   // scara
-  page.drawText("", {
+  page.drawText(fields['fisStaircase' + person], {
     x: 220,
     y: firstLineY - 79,
     size: fontSize,
@@ -387,7 +387,7 @@ function writePerson(fields, person, page, font, fontSize, firstLineY) {
   });
 
   // etaj
-  page.drawText("", {
+  page.drawText(fields['fisFloor' + person], {
     x: 260,
     y: firstLineY - 78,
     size: fontSize,
@@ -395,7 +395,7 @@ function writePerson(fields, person, page, font, fontSize, firstLineY) {
   });
 
   // apartament
-  page.drawText("", {
+  page.drawText(fields['fisApartment' + person], {
     x: 300,
     y: firstLineY - 79,
     size: fontSize,
