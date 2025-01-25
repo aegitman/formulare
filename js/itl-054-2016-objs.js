@@ -2,7 +2,7 @@ const {PDFDocument, rgb, StandardFonts } = PDFLib;
 
 export async function modifyPdf(fieldsMap) {
   // Fetch an existing PDF document
-  const url = "ITL-054.pdf";
+  const url = "pdfs/ITL-054.pdf";
   const existingPdfBytes = await fetch(url).then((res) =>
     res.arrayBuffer()
   );

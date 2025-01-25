@@ -24,7 +24,7 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -815,16 +815,16 @@
         });
     </script>
     <script type="module">
-        import { modifyPdf } from "./itl-054-2016-objs.js";
-        import { radiere } from './itl-016-2016.js';
-        import { numarInLitere } from "./utile.js";
+        import { modifyPdf } from "./js/itl-054-2016-objs.js";
+        import { radiere } from './js/itl-016-2016.js';
+        import { numarInLitere } from "./js/utile.js";
 
         module.itl56 = modifyPdf;
         module.itl16 = radiere;
         module.inLetters = numarInLitere;
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="utils-counties.js"></script>
+    <script src="js/utils-counties.js"></script>
     <script>
         function validatePhone(input) {
             const phoneError = document.getElementById("phoneError");
